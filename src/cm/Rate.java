@@ -25,7 +25,7 @@ public class Rate {
         if (normalRate.compareTo(BigDecimal.ZERO) < 0 || reducedRate.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("A rate cannot be negative");
         }
-        if (normalRate.compareTo(reducedRate) <= 0) {
+        if (normalRate.compareTo(reducedRate) < 0) {
             throw new IllegalArgumentException("The normal rate cannot be less or equal to the reduced rate");
         }
         if (!isValidPeriods(reducedPeriods) || !isValidPeriods(normalPeriods)) {
@@ -92,6 +92,8 @@ public class Rate {
         return isValid;
     }
     public BigDecimal calculate(Period periodStay) {
+        if(periodStay == null)
+            throw new IllegalArgumentException("The argument periodStay cannot be null.");
         int normalRateHours = periodStay.occurences(normal);
         int reducedRateHours = periodStay.occurences(reduced);
         return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
