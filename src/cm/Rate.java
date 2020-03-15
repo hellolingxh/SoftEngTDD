@@ -94,4 +94,36 @@ public abstract class Rate {
 
     public abstract BigDecimal calculate(Period periodStay);
 
+    public BigDecimal getHourlyNormalRate() {
+        return hourlyNormalRate;
+    }
+
+    public void setHourlyNormalRate(BigDecimal hourlyNormalRate) {
+        this.hourlyNormalRate = hourlyNormalRate;
+    }
+
+    public BigDecimal getHourlyReducedRate() {
+        return hourlyReducedRate;
+    }
+
+    public void setHourlyReducedRate(BigDecimal hourlyReducedRate) {
+        this.hourlyReducedRate = hourlyReducedRate;
+    }
+
+    public ArrayList<Period> getReduced() {
+        return reduced;
+    }
+
+    public void setReduced(ArrayList<Period> reduced) {
+        this.reduced = reduced;
+    }
+
+    public ArrayList<Period> getNormal() {
+        return normal;
+    }
+
+    public void setNormal(ArrayList<Period> normal) {
+        this.normal = normal;
+    }
+
 }
