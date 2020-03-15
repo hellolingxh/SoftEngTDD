@@ -574,7 +574,7 @@ public class LingXiaohuiTestTask3 {
      * 			- reducedPeriods: [(10, 13), (15, 16)]
      * 			- normalPeriods: [(9,10), (14, 15), (16, 23)]
      * 		  and the instance of periodStay is 0 for startHour and 24 for endHour
-     * Then: return an instance of BigDecimal and the value is 53
+     * Then: return an instance of BigDecimal and the value is 16
      */
     @Test
     public void calculateTestCase6() {
@@ -678,7 +678,7 @@ public class LingXiaohuiTestTask3 {
      * 			- reducedPeriods: [(10, 13), (15, 16)]
      * 			- normalPeriods: [(9,10), (14, 15), (16, 23)]
      * 		  and the instance of periodStay is 16 for startHour and 20 for endHour
-     * Then: return an instance of BigDecimal and the value is 10
+     * Then: return an instance of BigDecimal and the value is 16
      */
     @Test
     public void calculateTestCase9() {
@@ -845,7 +845,7 @@ public class LingXiaohuiTestTask3 {
     /**
      * Test the calculate of the Rate of Staff, Maximum payable is 16.00 per day.
      *
-     * Given: The period of stay from 6 a.m to 13 p.m
+     * Given: The period of stay from 6 a.m to 13 p.m that payment should less than 16.00
      * When: the instance of StaffRate is created by
      * 			- normalRate: 5.5
      * 			- reducedRate: 2.5
@@ -875,4 +875,36 @@ public class LingXiaohuiTestTask3 {
         Assert.assertTrue(charge.compareTo(new BigDecimal(13))==0);
     }
 
+    /**
+     * Test the calculate of the Rate of Staff, Maximum payable is 16.00 per day.
+     *
+     * Given: The period of stay from 6 a.m to 13 p.m that payment should more than 16.00
+     * When: the instance of StaffRate is created by
+     * 			- normalRate: 5.5
+     * 			- reducedRate: 2.5
+     * 			- reducedPeriods: [(10, 16)]
+     * 			- normalPeriods: [(9,10), (16, 23)]
+     * 		  and the instance of periodStay is 6 for startHour and 20 for endHour
+     * Then: return an instance of BigDecimal and the value is 16
+     */
+    @Test
+    public void staffRateTestCase2(){
+        Period reducedPeriod1 = new Period(10, 16);
+        ArrayList<Period> reducedPeriods = new ArrayList<Period>();
+        reducedPeriods.add(reducedPeriod1);
+
+        Period normalPeriod1 = new Period(9, 10);
+        Period normalPeriod2 = new Period(16, 23);
+        ArrayList<Period> normalPeriods = new ArrayList<Period>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Rate staffRate = new StaffRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Assert.assertNotNull(staffRate);
+
+        RateContext context = new RateContext();
+        context.setRate(staffRate);
+        BigDecimal charge = context.calculate(new Period(6, 20));
+        Assert.assertTrue(charge.compareTo(new BigDecimal(16))==0);
+    }
 }
