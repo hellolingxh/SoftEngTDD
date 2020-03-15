@@ -861,15 +861,14 @@ public class LingXiaohuiTestTask3 {
         reducedPeriods.add(reducedPeriod1);
 
         Period normalPeriod1 = new Period(9, 10);
-        Period normalPeriod3 = new Period(16, 23);
+        Period normalPeriod2 = new Period(16, 23);
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(normalPeriod1);
         normalPeriods.add(normalPeriod2);
-        normalPeriods.add(normalPeriod3);
 
         Rate staffRate = new StaffRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
         Assert.assertNotNull(staffRate);
-        
+
         RateContext context = new RateContext();
         context.setRate(staffRate);
         BigDecimal charge = context.calculate(new Period(6, 13));

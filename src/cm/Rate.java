@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by CM on 01/02/2018.
  */
-public class Rate {
+public abstract class Rate {
     private CarParkKind kind;
     private BigDecimal hourlyNormalRate;
     private BigDecimal hourlyReducedRate;
@@ -91,13 +91,7 @@ public class Rate {
         }
         return isValid;
     }
-    public BigDecimal calculate(Period periodStay) {
-        if(periodStay == null)
-            throw new IllegalArgumentException("The argument periodStay cannot be null.");
-        int normalRateHours = periodStay.occurences(normal);
-        int reducedRateHours = periodStay.occurences(reduced);
-        return (this.hourlyNormalRate.multiply(BigDecimal.valueOf(normalRateHours))).add(
-                this.hourlyReducedRate.multiply(BigDecimal.valueOf(reducedRateHours)));
-    }
+
+    public abstract BigDecimal calculate(Period periodStay);
 
 }
