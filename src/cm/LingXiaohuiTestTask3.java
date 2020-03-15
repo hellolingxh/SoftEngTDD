@@ -20,7 +20,7 @@ public class LingXiaohuiTestTask3 {
         Period period = new Period(1, 2);
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(period);
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(3.0), new BigDecimal(2.0), null, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(3.0), new BigDecimal(2.0), null, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -36,7 +36,7 @@ public class LingXiaohuiTestTask3 {
         Period period = new Period(1, 2);
         ArrayList<Period> reducedPeriods = new ArrayList<Period>();
         reducedPeriods.add(period);
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(3.0), new BigDecimal(2.0), reducedPeriods, null);
+        Rate rate = new StaffRate(new BigDecimal(3.0), new BigDecimal(2.0), reducedPeriods, null);
         Assert.assertNotNull(rate);
     }
 
@@ -57,7 +57,7 @@ public class LingXiaohuiTestTask3 {
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(normalPeriod);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(-1.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(-1.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -78,7 +78,7 @@ public class LingXiaohuiTestTask3 {
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(normalPeriod);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(1.0), new BigDecimal(-2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(1.0), new BigDecimal(-2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -99,7 +99,7 @@ public class LingXiaohuiTestTask3 {
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(normalPeriod);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(0), new BigDecimal(0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(0), new BigDecimal(0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -120,7 +120,7 @@ public class LingXiaohuiTestTask3 {
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(normalPeriod);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(3.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(3.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -141,7 +141,7 @@ public class LingXiaohuiTestTask3 {
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(normalPeriod);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(2.0), new BigDecimal(3.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(2.0), new BigDecimal(3.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -162,7 +162,7 @@ public class LingXiaohuiTestTask3 {
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(normalPeriod);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(3.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(3.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -183,7 +183,7 @@ public class LingXiaohuiTestTask3 {
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(normalPeriod);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(2.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(2.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -208,7 +208,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod1);
         normalPeriods.add(normalPeriod2);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -231,7 +231,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod1);
         normalPeriods.add(normalPeriod2);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -254,7 +254,7 @@ public class LingXiaohuiTestTask3 {
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(normalPeriod1);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -279,7 +279,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod1);
         normalPeriods.add(normalPeriod2);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -304,7 +304,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod1);
         normalPeriods.add(normalPeriod2);
 
-        Rate rate = new Rate(CarParkKind.STAFF, null, new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(null, new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -330,7 +330,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod1);
         normalPeriods.add(normalPeriod2);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), null, reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), null, reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -359,7 +359,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -384,7 +384,7 @@ public class LingXiaohuiTestTask3 {
         ArrayList<Period> normalPeriods = new ArrayList<Period>();
         normalPeriods.add(normalPeriod1);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
     }
 
@@ -417,7 +417,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         rate.calculate(null);
     }
@@ -452,7 +452,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         rate.calculate(new Period(-1, 3));
     }
@@ -487,7 +487,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         rate.calculate(new Period(21, -2));
     }
@@ -522,7 +522,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         rate.calculate(new Period(25, 8));
     }
@@ -557,7 +557,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         rate.calculate(new Period(8, 25));
     }
@@ -592,7 +592,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         BigDecimal expectedCharge = rate.calculate(new Period(0, 24));
         Assert.assertTrue(expectedCharge.compareTo(new BigDecimal(53))==0);
@@ -627,7 +627,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         rate.calculate(new Period(8, 6));
     }
@@ -661,7 +661,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         rate.calculate(new Period(9, 9));
     }
@@ -696,7 +696,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         BigDecimal expectedCharge = rate.calculate(new Period(16, 20));
         Assert.assertTrue(expectedCharge.compareTo(new BigDecimal(22))==0);
@@ -731,7 +731,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         BigDecimal expectedCharge = rate.calculate(new Period(6, 8));
         Assert.assertTrue(expectedCharge.compareTo(new BigDecimal(0))==0);
@@ -766,7 +766,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         BigDecimal expectedCharge = rate.calculate(new Period(6, 10));
         Assert.assertTrue(expectedCharge.compareTo(new BigDecimal(5.5))==0);
@@ -801,7 +801,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         BigDecimal expectedCharge = rate.calculate(new Period(10, 14));
         Assert.assertTrue(expectedCharge.compareTo(new BigDecimal(7.5))==0);
@@ -836,7 +836,7 @@ public class LingXiaohuiTestTask3 {
         normalPeriods.add(normalPeriod2);
         normalPeriods.add(normalPeriod3);
 
-        Rate rate = new Rate(CarParkKind.STAFF, new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Rate rate = new StaffRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         BigDecimal expectedCharge = rate.calculate(new Period(6, 13));
         Assert.assertTrue(expectedCharge.compareTo(new BigDecimal(13))==0);
