@@ -595,7 +595,7 @@ public class LingXiaohuiTestTask3 {
         Rate rate = new StaffRate(new BigDecimal(5.0), new BigDecimal(2.0), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         BigDecimal expectedCharge = rate.calculate(new Period(0, 24));
-        Assert.assertTrue(expectedCharge.compareTo(new BigDecimal(53))==0);
+        Assert.assertTrue(expectedCharge.compareTo(new BigDecimal(16))==0);
     }
 
     /**
@@ -699,7 +699,7 @@ public class LingXiaohuiTestTask3 {
         Rate rate = new StaffRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
         Assert.assertNotNull(rate);
         BigDecimal expectedCharge = rate.calculate(new Period(16, 20));
-        Assert.assertTrue(expectedCharge.compareTo(new BigDecimal(22))==0);
+        Assert.assertTrue(expectedCharge.compareTo(new BigDecimal(16))==0);
     }
 
     /**
@@ -872,7 +872,7 @@ public class LingXiaohuiTestTask3 {
         RateContext context = new RateContext();
         context.setRate(staffRate);
         BigDecimal charge = context.calculate(new Period(6, 13));
-        Assert.assertTrue(charge.compareTo(new BigDecimal(12))==0);
+        Assert.assertTrue(charge.compareTo(new BigDecimal(13))==0);
     }
 
 }
