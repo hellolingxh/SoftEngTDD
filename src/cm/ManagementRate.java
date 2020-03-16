@@ -18,6 +18,6 @@ public class ManagementRate extends Rate {
         BigDecimal basePayment = new BigDecimal(3.0);
         if(payment.compareTo(basePayment) < 0)
             return basePayment;
-        return null;
+        return payment;
     }
 }

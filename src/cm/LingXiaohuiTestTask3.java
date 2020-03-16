@@ -1042,4 +1042,38 @@ public class LingXiaohuiTestTask3 {
         Assert.assertTrue(payment.compareTo(new BigDecimal(3)) == 0);
 
     }
+
+    /**
+     * Test the calculate of the Rate of Management, minimum payable is 3.00.
+     *
+     * Given: The period of stay from 10 a.m to 18 p.m that payment should more than 3.00
+     * When: the instance of ManagementRate is created by
+     * 			- normalRate: 5.5
+     * 			- reducedRate: 2.5
+     * 			- reducedPeriods: [(10, 16)]
+     * 			- normalPeriods: [(9,10), (16, 23)]
+     * 		  and the instance of periodStay is 10 for startHour and 18 for endHour
+     * Then: return an instance of BigDecimal and the value is 3
+     */
+    @Test
+    public void ManagementRateTestCase2(){
+        Period reducedPeriod1 = new Period(10, 16);
+        ArrayList<Period> reducedPeriods = new ArrayList<Period>();
+        reducedPeriods.add(reducedPeriod1);
+
+        Period normalPeriod1 = new Period(9, 10);
+        Period normalPeriod2 = new Period(16, 23);
+        ArrayList<Period> normalPeriods = new ArrayList<Period>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Rate managementRate = new ManagementRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Assert.assertNotNull(managementRate);
+
+        RateContext context = new RateContext();
+        context.setRate(managementRate);
+        BigDecimal payment = context.calculate(new Period(10, 18));
+        Assert.assertTrue(payment.compareTo(new BigDecimal(26)) == 0);
+
+    }
 }
