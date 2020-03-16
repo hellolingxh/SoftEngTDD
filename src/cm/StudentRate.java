@@ -19,7 +19,9 @@ public class StudentRate extends Rate {
 
         BigDecimal basePayment = new BigDecimal(5.5);
         BigDecimal paymentOff = new BigDecimal(0.75);
-        return basePayment.add(payment.subtract(basePayment).multiply(paymentOff));
+        if(payment.compareTo(basePayment) > 0)
+            return basePayment.add(payment.subtract(basePayment).multiply(paymentOff));
+        return payment;
 
     }
 }
