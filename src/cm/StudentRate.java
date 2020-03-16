@@ -11,6 +11,8 @@ public class StudentRate extends Rate {
 
     @Override
     public BigDecimal calculate(Period periodStay) {
+        if(periodStay == null)
+            throw new IllegalArgumentException("The argument periodStay cannot be null.");
 
         int normalRateHours = periodStay.occurences(getNormal());
         int reducedRateHours = periodStay.occurences(getReduced());

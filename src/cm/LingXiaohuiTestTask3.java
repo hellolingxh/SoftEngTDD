@@ -975,4 +975,38 @@ public class LingXiaohuiTestTask3 {
         Assert.assertTrue(payment.compareTo(new BigDecimal(5)) == 0);
 
     }
+
+    /**
+     * Test the calculate of the Rate of Student, 25% reduction on any amount above 5.50.
+     *
+     * Given: The period of stay is null
+     * When: the instance of StaffRate is created by
+     * 			- normalRate: 5.5
+     * 			- reducedRate: 2.5
+     * 			- reducedPeriods: [(10, 16)]
+     * 			- normalPeriods: [(9,10), (16, 23)]
+     * 		  and the instance of periodStay is null
+     * Then: throw an IllegalArgumentException
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void studentRateTestCase3(){
+        Period reducedPeriod1 = new Period(10, 16);
+        ArrayList<Period> reducedPeriods = new ArrayList<Period>();
+        reducedPeriods.add(reducedPeriod1);
+
+        Period normalPeriod1 = new Period(9, 10);
+        Period normalPeriod2 = new Period(16, 23);
+        ArrayList<Period> normalPeriods = new ArrayList<Period>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Rate studentRate = new StudentRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Assert.assertNotNull(studentRate);
+
+        RateContext context = new RateContext();
+        context.setRate(studentRate);
+        context.calculate(null);
+
+    }
+
 }
