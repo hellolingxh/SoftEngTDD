@@ -19,6 +19,6 @@ public class VisitorRate extends Rate {
         BigDecimal reduction = new BigDecimal(0.5);
         if(payment.compareTo(basePayment) > 0)
             return payment.subtract(basePayment).multiply(reduction);
-        return null;
+        return new BigDecimal(0);
     }
 }
