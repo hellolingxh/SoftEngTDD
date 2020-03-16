@@ -1076,4 +1076,71 @@ public class LingXiaohuiTestTask3 {
         Assert.assertTrue(payment.compareTo(new BigDecimal(26)) == 0);
 
     }
+
+    /**
+     * Test the calculate of the Rate of Management, minimum payable is 3.0.
+     *
+     * Given: The period of stay is null
+     * When: the instance of ManagementRate is created by
+     * 			- normalRate: 5.5
+     * 			- reducedRate: 2.5
+     * 			- reducedPeriods: [(10, 16)]
+     * 			- normalPeriods: [(9,10), (16, 23)]
+     * 		  and the instance of periodStay is null
+     * Then: throw an IllegalArgumentException
+     */
+    @Test(expected = IllegalArgumentException.class)
+    public void managementRateTestCase3(){
+        Period reducedPeriod1 = new Period(10, 16);
+        ArrayList<Period> reducedPeriods = new ArrayList<Period>();
+        reducedPeriods.add(reducedPeriod1);
+
+        Period normalPeriod1 = new Period(9, 10);
+        Period normalPeriod2 = new Period(16, 23);
+        ArrayList<Period> normalPeriods = new ArrayList<Period>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Rate managementRate = new ManagementRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Assert.assertNotNull(managementRate);
+
+        RateContext context = new RateContext();
+        context.setRate(managementRate);
+        context.calculate(null);
+
+    }
+
+    /**
+     * Test the calculate of the Rate of Visitor, first 8.00 is free, 50% reduction above that.
+     *
+     * Given: The period of stay from 6 a.m to 13 p.m that payment should more than 8.00
+     * When: the instance of VisitorRate is created by
+     * 			- normalRate: 5.5
+     * 			- reducedRate: 2.5
+     * 			- reducedPeriods: [(10, 16)]
+     * 			- normalPeriods: [(9,10), (16, 23)]
+     * 		  and the instance of periodStay is 6 for startHour and 13 for endHour
+     * Then: return an instance of BigDecimal and the value is 2.5
+     */
+    @Test
+    public void VisitorRateTestCase1(){
+        Period reducedPeriod1 = new Period(10, 16);
+        ArrayList<Period> reducedPeriods = new ArrayList<Period>();
+        reducedPeriods.add(reducedPeriod1);
+
+        Period normalPeriod1 = new Period(9, 10);
+        Period normalPeriod2 = new Period(16, 23);
+        ArrayList<Period> normalPeriods = new ArrayList<Period>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Rate visitorRate = new VisitorRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Assert.assertNotNull(visitorRate);
+
+        RateContext context = new RateContext();
+        context.setRate(visitorRate);
+        BigDecimal payment = context.calculate(new Period(6, 13));
+        Assert.assertTrue(payment.compareTo(new BigDecimal(2.5)) == 0);
+
+    }
 }
