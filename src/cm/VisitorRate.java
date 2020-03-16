@@ -10,6 +10,9 @@ public class VisitorRate extends Rate {
 
     @Override
     public BigDecimal calculate(Period periodStay) {
+        if(periodStay == null)
+            throw new IllegalArgumentException("The argument periodStay cannot be null.");
+
         int normalRateHours = periodStay.occurences(getNormal());
         int reducedRateHours = periodStay.occurences(getReduced());
         BigDecimal payment = (this.getHourlyNormalRate().multiply(BigDecimal.valueOf(normalRateHours))).add(
