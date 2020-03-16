@@ -92,6 +92,16 @@ public abstract class Rate {
         return isValid;
     }
 
+    protected BigDecimal calculateTotalPayment(Period periodStay) {
+        if(periodStay == null)
+            throw new IllegalArgumentException("The argument periodStay cannot be null.");
+
+        int normalRateHours = periodStay.occurences(getNormal());
+        int reducedRateHours = periodStay.occurences(getReduced());
+        return (this.getHourlyNormalRate().multiply(BigDecimal.valueOf(normalRateHours))).add(
+                this.getHourlyReducedRate().multiply(BigDecimal.valueOf(reducedRateHours)));
+    }
+
     public abstract BigDecimal calculate(Period periodStay);
 
     public BigDecimal getHourlyNormalRate() {
