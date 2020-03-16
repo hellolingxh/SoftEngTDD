@@ -878,7 +878,7 @@ public class LingXiaohuiTestTask3 {
     /**
      * Test the calculate of the Rate of Staff, Maximum payable is 16.00 per day.
      *
-     * Given: The period of stay from 6 a.m to 13 p.m that payment should more than 16.00
+     * Given: The period of stay from 6 a.m to 20 p.m that payment should more than 16.00
      * When: the instance of StaffRate is created by
      * 			- normalRate: 5.5
      * 			- reducedRate: 2.5
@@ -906,5 +906,39 @@ public class LingXiaohuiTestTask3 {
         context.setRate(staffRate);
         BigDecimal charge = context.calculate(new Period(6, 20));
         Assert.assertTrue(charge.compareTo(new BigDecimal(16))==0);
+    }
+
+    /**
+     * Test the calculate of the Rate of Student, 25% reduction on any amount above 5.50.
+     *
+     * Given: The period of stay from 6 a.m to 13 p.m that payment should more than 5.50
+     * When: the instance of StaffRate is created by
+     * 			- normalRate: 5.5
+     * 			- reducedRate: 2.5
+     * 			- reducedPeriods: [(10, 16)]
+     * 			- normalPeriods: [(9,10), (16, 23)]
+     * 		  and the instance of periodStay is 6 for startHour and 13 for endHour
+     * Then: return an instance of BigDecimal and the value is 11.125
+     */
+    @Test
+    public void studentRateTestCase1(){
+        Period reducedPeriod1 = new Period(10, 16);
+        ArrayList<Period> reducedPeriods = new ArrayList<Period>();
+        reducedPeriods.add(reducedPeriod1);
+
+        Period normalPeriod1 = new Period(9, 10);
+        Period normalPeriod2 = new Period(16, 23);
+        ArrayList<Period> normalPeriods = new ArrayList<Period>();
+        normalPeriods.add(normalPeriod1);
+        normalPeriods.add(normalPeriod2);
+
+        Rate studentRate = new StudentRate(new BigDecimal(5.5), new BigDecimal(2.5), reducedPeriods, normalPeriods);
+        Assert.assertNotNull(studentRate);
+
+        RateContext context = new RateContext();
+        context.setRate(studentRate);
+        BigDecimal payment = context.calculate(new Period(6, 13));
+        Assert.assertTrue(payment.compareTo(new BigDecimal(11.125)) == 0);
+
     }
 }
